@@ -17,10 +17,10 @@ console.log(
 	"Part 2:",
 	moves
 		.map(_entry => {
-			const [opponent, method] = _entry.split(" ");
-			const me = { X: { A: "Z", B: "X", C: "Y" }[opponent], Y: { A: "X", B: "Y", C: "Z" }[opponent], Z: { A: "Y", B: "Z", C: "X" }[opponent] }[
-				method
-			];
+			const [opponent, method] = _entry.split(" "),
+				me = { X: { A: "Z", B: "X", C: "Y" }[opponent], Y: { A: "X", B: "Y", C: "Z" }[opponent], Z: { A: "Y", B: "Z", C: "X" }[opponent] }[
+					method
+				];
 			return [
 				{ X: 1, Y: 2, Z: 3 }[me],
 				{ A: "X", B: "Y", C: "Z" }[opponent] === me ? 3 : { A: "Y", B: "Z", C: "X" }[opponent] === me ? 6 : 0
