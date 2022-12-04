@@ -1,4 +1,4 @@
-const moves = require("fs").readFileSync("./input.txt", "utf8").trim().split("\n");
+const moves = require("fs").readFileSync("input.txt", "utf8").trim().split("\n");
 
 console.log(
 	"Part 1:",
@@ -8,9 +8,9 @@ console.log(
 			return [
 				{ X: 1, Y: 2, Z: 3 }[me],
 				{ A: "X", B: "Y", C: "Z" }[opponent] === me ? 3 : { A: "Y", B: "Z", C: "X" }[opponent] === me ? 6 : 0
-			].reduce((_acc, _cur) => _acc + _cur, 0);
+			].reduce((_acc, _cur) => _acc + _cur);
 		})
-		.reduce((_acc, _cur) => _acc + _cur, 0)
+		.reduce((_acc, _cur) => _acc + _cur)
 );
 
 console.log(
@@ -24,7 +24,7 @@ console.log(
 			return [
 				{ X: 1, Y: 2, Z: 3 }[me],
 				{ A: "X", B: "Y", C: "Z" }[opponent] === me ? 3 : { A: "Y", B: "Z", C: "X" }[opponent] === me ? 6 : 0
-			].reduce((_acc, _cur) => _acc + _cur, 0);
+			].reduce((_acc, _cur) => _acc + _cur);
 		})
-		.reduce((_acc, _cur) => _acc + _cur, 0)
+		.reduce((_acc, _cur) => _acc + _cur)
 );

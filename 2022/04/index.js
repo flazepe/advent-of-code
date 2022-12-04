@@ -1,6 +1,6 @@
 console.log(
 	require("fs")
-		.readFileSync("./input.txt", "utf8")
+		.readFileSync("input.txt", "utf8")
 		.trim()
 		.split("\n")
 		.reduce(
