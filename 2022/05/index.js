@@ -12,8 +12,7 @@ const input = require("fs").readFileSync("input.txt", "utf8").split("\n"),
 							.join("")
 							.split("-")
 					)
-					.map(_crates => _crates[_index])
-					.map(_entry => _entry.replace(/\W/g, ""))
+					.map(_crates => _crates[_index].replace(/\W/g, ""))
 					.filter(Boolean)
 			])
 	);
