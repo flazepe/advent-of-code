@@ -1,5 +1,5 @@
 const input = require("fs").readFileSync("input.txt", "utf8").split("\n"),
-	crates = Object.fromEntries(
+	formattedCrates = Object.fromEntries(
 		Array(9)
 			.fill(0)
 			.map((_, _index) => [
@@ -16,30 +16,20 @@ const input = require("fs").readFileSync("input.txt", "utf8").split("\n"),
 					.map(_entry => _entry.replace(/\W/g, ""))
 					.filter(Boolean)
 			])
-	),
-	part1 = JSON.parse(JSON.stringify(crates)),
-	part2 = JSON.parse(JSON.stringify(crates));
+	);
 
-for (const instruction of input.slice(10, -1)) {
-	const [amount, from, to] = instruction.split(" ").filter(Number);
+function sortCrates(reverse) {
+	const crates = JSON.parse(JSON.stringify(formattedCrates));
 
-	// Part 1
-	part1[to].unshift(...part1[from].splice(0, amount).reverse());
+	for (const instruction of input.slice(10, -1)) {
+		const [amount, from, to] = instruction.split(" ").filter(Number);
+		crates[to].unshift(...crates[from].splice(0, amount)[reverse ? "reverse" : "slice"]());
+	}
 
-	// Part 2
-	part2[to].unshift(...part2[from].splice(0, amount));
+	return Object.values(crates)
+		.map(_entry => _entry[0])
+		.join("");
 }
 
-console.log(
-	"Part 1:",
-	Object.values(part1)
-		.map(_entry => _entry[0])
-		.join("")
-);
-
-console.log(
-	"Part 2:",
-	Object.values(part2)
-		.map(_entry => _entry[0])
-		.join("")
-);
+console.log("Part 1:", sortCrates(true));
+console.log("Part 2:", sortCrates());
