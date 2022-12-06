@@ -1,4 +1,4 @@
-const input = require("fs").readFileSync("input.txt", "utf8").trim();
+const input = require("fs").readFileSync("input.txt", "utf8");
 
 function findUniquePacket(length) {
 	for (let i = 0; i < input.length; i++) {
